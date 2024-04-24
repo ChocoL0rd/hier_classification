@@ -1,0 +1,44 @@
+device: cuda
+pin_memory: True
+num_workers: 4
+batch_size: 32
+
+save_period: 1
+save_path: ${hydra:runtime.output_dir}
+
+# period of computing validation
+val_period: 1
+
+epochs: 40
+
+entropy_weights: False
+
+# to control balanced sampling, if n_train_samples not True then gets size of train dataset
+weighted_rand_sampler: True
+n_train_samples: False
+replacement: True
+
+n_val_samples: False
+
+optimizer:
+    # adam, sgd, adamw
+    name: "adam"
+    lr: 0.001
+    weight_decay: 0
+    beta1: 0.9
+    beta2: 0.999
+
+scheduler:
+    name: "step_lr"
+    step_size: 10
+    factor: 0.1
+    warmup_epochs: 0
+
+convergence_checker:
+    # if <= 0 , never converge
+    tolerance: 0.001
+    max_iterations: 10
+
+
+
+

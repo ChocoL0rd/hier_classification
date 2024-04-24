@@ -1,0 +1,45 @@
+model_cfg:
+  load_pretrained: false
+  tree_path: ../data_pipeline/tree_structure.json
+  enc_cfg:
+    name: dinov2
+    version: vits14
+    freeze: true
+  dec_cfg:
+    name: class_dec
+    depth: 2
+    d_model: 384
+    nhead: 16
+    d_ff: 384
+    dropout: 0
+    activation: gelu
+train_cfg:
+  device: cuda
+  pin_memory: true
+  num_workers: 4
+  batch_size: 32
+  save_period: 1
+  save_path: ${hydra:runtime.output_dir}
+  val_period: 1
+  epochs: 40
+  entropy_weights: false
+  weighted_rand_sampler: true
+  n_train_samples: false
+  replacement: true
+  n_val_samples: false
+  optimizer:
+    name: adam
+    lr: 0.001
+    weight_decay: 0
+    beta1: 0.9
+    beta2: 0.999
+  scheduler:
+    name: step_lr
+    step_size: 10
+    factor: 0.1
+    warmup_epochs: 0
+  convergence_checker:
+    tolerance: 0.001
+    max_iterations: 10
+dataset_cfg:
+  path: ../data_pipeline/cross_val_0.json

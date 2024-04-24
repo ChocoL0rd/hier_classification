@@ -1,0 +1,39 @@
+{
+    "train": {
+        "some/path/to/image1.jpg": [
+            "dress",
+            "style_Casual",
+            "pattern_Floral",
+            "length_Long",
+            "type_Plain",
+            "sleeve_Long",
+            "neckline_Collar"
+        ],
+        "some/path/to/image2.jpg": [
+            "hat",
+            "style_Casual",
+            "pattern_Graphic",
+            "season_Summer",
+            "type_Round Hat"
+        ]
+    },
+    "val": {
+        "some/path/to/image3.jpg": [
+            "top",
+            "style_Casual",
+            "pattern_Graphic",
+            "length_Regular",
+            "sleeve_3/4",
+            "neckline_Rounded"
+        ],
+        "some/path/to/image4.jpg": [
+            "cardigan",
+            "season_Winter",
+            "style_Formal",
+            "pattern_Plain",
+            "length_Regular",
+            "sleeve_Long",
+            "neckline_V-neck"
+        ],
+    }
+}

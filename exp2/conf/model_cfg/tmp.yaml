@@ -1,0 +1,18 @@
+load_pretrained: True
+pretrained_path: "outputs/2024-02-13/01-54-29/model.pt"
+
+tree_path: "../data_pipeline/tree_structure.json"
+
+enc_cfg:
+  name: dinov2
+  version: vits14
+  freeze: True
+
+dec_cfg:
+  name: custom
+  depth: 2
+  d_model: 384
+  nhead: 16
+  d_ff: 384
+  dropout: 0
+  activation: gelu
